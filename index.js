@@ -1,4 +1,5 @@
 const express = require("express");
+const req = require("express/lib/request");
 const app = express();
 
 //app.use(() => {
@@ -30,6 +31,12 @@ app.get('/dogs', (req, res) => {
     res.send("Dog Request")
 })
 
+app.get('/search', (req, res) => {  //basic pattern for utilizing query strings
+    const { q } = res.query;
+    res.send(`<h1>Search results for ${q}</h1>`)
+})
+
+
 app.get('*', (req, res) => { //what happens when we enter a path that doesn't exits... counts as all other paths
     res.send("don't know this path")  //important to put after all
 })
@@ -39,3 +46,5 @@ app.listen(2000, () => {  //sets up server locally on machine.  Port is 2000
     console.log("listening on port 2k")
 });
 
+//hint you can use nodemon instead of node to make it so that server restarts itself after making changes
+//instead of having to do it manually
