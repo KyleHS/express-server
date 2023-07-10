@@ -10,6 +10,18 @@ app.get('/', (req, res) => {  //method is known as routing
     res.send("homepage")
 })
 
+app.get('/r/:subreddit', (req, res) => { //
+    const { subreddit } = req.params;
+    res.send(`<h1>Browsing the ${subreddit} subreddit/<h1>`)
+    res.send("this is a subreddit")
+})
+
+app.get('/r/:subreddit/:postID', (req, res) => { //
+    const { subreddit, postID } = req.params;
+    res.send(`<h1>Viewing Post ID: ${postID} on the subreddit/<h1>`)
+    res.send("this is a subreddit")
+})
+
 app.post('/cats', (req, res) => {  //makes it so that we have to go to localhost:2000/cats  to get this request
     res.send("Cat Request")
 })
