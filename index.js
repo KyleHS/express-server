@@ -18,6 +18,10 @@ app.get('/dogs', (req, res) => {
     res.send("Dog Request")
 })
 
+app.get('*', (req, res) => { //what happens when we enter a path that doesn't exits... counts as all other paths
+    res.send("don't know this path")  //important to put after all
+})
+
 //to find in browser go to:   localhost:2000
 app.listen(2000, () => {  //sets up server locally on machine.  Port is 2000
     console.log("listening on port 2k")
