@@ -10,7 +10,7 @@ app.get('/', (req, res) => {  //method is known as routing
     res.send("homepage")
 })
 
-app.get('/cats', (req, res) => {  //makes it so that we have to go to localhost:2000/cats  to get this request
+app.post('/cats', (req, res) => {  //makes it so that we have to go to localhost:2000/cats  to get this request
     res.send("Cat Request")
 })
 
